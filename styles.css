@@ -6,9 +6,9 @@
   --text-muted: #c2c2c8;
   --primary: #e53935;
   --primary-dark: #b71c1c;
-  --secondary: #ffffff;
-  --border: rgba(255, 255, 255, 0.08);
-  --shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+  --secondary: #fff;
+  --border: rgb(255 255 255 / 8%);
+  --shadow: 0 20px 50px rgb(0 0 0 / 45%);
   --radius: 24px;
   --radius-sm: 18px;
   --max-width: 1180px;
@@ -25,7 +25,7 @@ html {
 body {
   margin: 0;
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: radial-gradient(circle at top, rgba(229, 57, 53, 0.12), transparent 30%), #080808;
+  background: radial-gradient(circle at top, rgb(229 57 53 / 12%), transparent 30%), #080808;
   color: var(--text);
   line-height: 1.75;
 }
@@ -45,7 +45,7 @@ a:hover,
 a:focus-visible,
 button:hover,
 button:focus-visible {
-  outline: 3px solid rgba(229, 57, 53, 0.24);
+  outline: 3px solid rgb(229 57 53 / 24%);
   outline-offset: 3px;
 }
 
@@ -69,7 +69,7 @@ a.button:hover {
 
 button:focus-visible,
 a.button:focus-visible {
-  box-shadow: 0 0 0 4px rgba(229, 57, 53, 0.24);
+  box-shadow: 0 0 0 4px rgb(229 57 53 / 24%);
 }
 
 .button.primary {
@@ -83,12 +83,12 @@ a.button:focus-visible {
 
 .button.secondary {
   background: transparent;
-  border: 1px solid rgba(229, 57, 53, 0.8);
+  border: 1px solid rgb(229 57 53 / 80%);
   color: var(--secondary);
 }
 
 .button.secondary:hover {
-  background: rgba(229, 57, 53, 0.12);
+  background: rgb(229 57 53 / 12%);
 }
 
 .container {
@@ -98,8 +98,8 @@ a.button:focus-visible {
 
 .site-header {
   padding: 1.25rem 0;
-  background: rgba(18, 18, 18, 0.95);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgb(18 18 18 / 95%);
+  border-bottom: 1px solid rgb(255 255 255 / 8%);
   backdrop-filter: blur(10px);
   position: sticky;
   top: 0;
@@ -151,10 +151,15 @@ a.button:focus-visible {
   font-size: 0.95rem;
 }
 
+.contact-list a {
+  color: var(--secondary);
+  font-weight: 700;
+}
+
 .nav-list a:hover,
 .nav-list a:focus-visible {
   color: var(--secondary);
-  background: rgba(229, 57, 53, 0.14);
+  background: rgb(229 57 53 / 14%);
 }
 
 .skip-link {
@@ -203,7 +208,7 @@ a.button:focus-visible {
 }
 
 .hero {
-  background: linear-gradient(135deg, rgba(229, 57, 53, 0.16), transparent 45%), rgba(18, 18, 18, 0.98);
+  background: linear-gradient(135deg, rgb(229 57 53 / 16%), transparent 45%), rgb(18 18 18 / 98%);
 }
 
 .hero-content {
@@ -247,7 +252,7 @@ a.button:focus-visible {
 .project-card,
 .experience-item,
 .impact-item {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgb(255 255 255 / 4%);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   padding: 1.75rem;
@@ -320,12 +325,12 @@ a.button:focus-visible {
 }
 
 .impact {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgb(255 255 255 / 3%);
 }
 
 .impact-item {
   padding: 1.75rem;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgb(255 255 255 / 4%);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
 }
@@ -344,15 +349,10 @@ a.button:focus-visible {
   gap: 0.75rem;
 }
 
-.contact-list a {
-  color: var(--secondary);
-  font-weight: 700;
-}
-
 .site-footer {
-  background: rgba(18, 18, 18, 0.95);
+  background: rgb(18 18 18 / 95%);
   padding: 2rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgb(255 255 255 / 8%);
 }
 
 .footer-inner {
@@ -363,7 +363,7 @@ a.button:focus-visible {
   font-size: 0.95rem;
 }
 
-@media (min-width: 728px) {
+@media (width >= 728px) {
   .header-inner {
     grid-template-columns: auto 1fr;
     align-items: center;
@@ -385,7 +385,7 @@ a.button:focus-visible {
   }
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .container {
     width: min(100%, var(--max-width));
   }
