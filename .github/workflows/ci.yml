@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate-static-site:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install validation tools
+        run: |
+          npm install -g html-validate htmlhint stylelint stylelint-config-standard
+
+      - name: Validate HTML
+        run: html-validate index.html
+
+      - name: Run basic HTML static analysis
+        run: htmlhint index.html
+
+      - name: Create temporary Stylelint config
+        run: |
+          cat > .stylelintrc.json <<'EOF'
+          {
+            "extends": "stylelint-config-standard",
+            "rules": {
+              "color-no-invalid-hex": true,
+              "declaration-no-important": true,
+              "block-no-empty": true
+            }
+          }
+          EOF
+
+      - name: Validate CSS
+        run: stylelint "styles.css"
